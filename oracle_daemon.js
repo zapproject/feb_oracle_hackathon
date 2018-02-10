@@ -20,10 +20,10 @@ const eventEmitterContract = eth.contract(emitterAbi).at(emitterAddress);
 function triggerContractQuery(queryString, oracleAddress){
 
     EventEmitter.fireEvent(queryString, oracleAddress).then((success) =>{
-        callback(null, success);
+        console.log(null, success);
 
     }).catch((err) => {
-        callback(err);
+        console.log(err);
     });
 
 }
@@ -32,10 +32,10 @@ function triggerContractQuery(queryString, oracleAddress){
 function respondContractQuery(responseString){
 
     EventEmitter.callback(responseString).then((success) =>{
-        callback(null, success);
+        console.log(null, success);
 
     }).catch((err) => {
-        callback(err);
+        console.log(err);
     });
 
 }
