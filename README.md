@@ -12,7 +12,7 @@ Thank you for your patience
 
 
 
-**See Update Above**
+**SEE UPDATE ABOVE**
 
 
 Object: Build a Smart Contract Data-Oracle
