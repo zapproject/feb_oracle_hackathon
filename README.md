@@ -35,30 +35,29 @@ Getting started:
 
 Download the repo and enter its root directory.
 
-npm install .
+    npm install .
 
 #install truffle for deploying contracts locally
-npm install -g truffle
+    npm install -g truffle
 
 
 #To deploy contract enter ./local_deploy
 
 #compile contract in contracts folder
-truffle compile
-truffle migrate
+     truffle compile
+     truffle migrate
 
-
- Deploying EventEmitter...
-  ... 0x7d0b2bbfdc2e38d8626e18613e6ecf4a61a89fb84bed77bdc02c980acc4ab13d
-  EventEmitter: 0x856171b4c83ac0a9dd78b8a1062f3ca878db6928
+     Deploying EventEmitter...
+      ... 0x7d0b2bbfdc2e38d8626e18613e6ecf4a61a89fb84bed77bdc02c980acc4ab13d
+      EventEmitter: 0x856171b4c83ac0a9dd78b8a1062f3ca878db6928
 
 Take the address from the above log and add to oracle_daemon.js
 
-#run local test node
-testrpc --acount=”<team private key>, 100000000000000000000”
+    #run local test node
+    testrpc --acount=”<team private key>, 100000000000000000000”
 
-#run oracle daemon script
-node oracle_dameon.js
+    #run oracle daemon script
+    node oracle_dameon.js
 
 https://medium.com/@gus_tavo_guim/using-truffle-to-create-and-deploy-smart-contracts-95d65df626a2
 
