@@ -1,0 +1,108 @@
+[
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "testString",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "queryString",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "oracleAddress",
+				"type": "address"
+			}
+		],
+		"name": "Query",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "response",
+				"type": "string"
+			}
+		],
+		"name": "callBack",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "queryString",
+				"type": "string"
+			},
+			{
+				"name": "oracleAddress",
+				"type": "address"
+			}
+		],
+		"name": "fireEvent",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "fireTestEvent",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "getString",
+		"outputs": [
+			{
+				"name": "_testString",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_testString",
+				"type": "string"
+			}
+		],
+		"name": "setString",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	}
+]
