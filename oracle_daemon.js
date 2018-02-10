@@ -63,19 +63,10 @@ Handle Query events from EventEmitter contract
 event Query(string queryString, address queryAddress);
 */
 
-// Create the Event filter for solidity event
-let filter = eventEmitterContract.Query().new((err, res) => {
-    if ( err ) {
-        throw err;
-    }
+let queryEvent = eventEmitterContract.Query();
 
-});
+queryEvent.watch((err, res) => {
+        console.log(err, res)
 
-// Watch the event filter
-filter.watch().then((result) => {
-    
-    // execute oracle worker here
-
-});
-
-
+    //handle query parameters passed in res
+})
