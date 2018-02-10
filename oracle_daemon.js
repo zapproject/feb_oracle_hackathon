@@ -7,7 +7,7 @@ const provider = 'http://127.0.0.1:8545';//address of node
 const eth = new Eth(new Eth.HttpProvider(provider));
 
 //provider account
-const privateKeyString = "aa4b1ff1a70c4c55b9c5bd7bacb5fdd24dcc3e659f877faef7df3a34b0b5af98";//add ethereum private key(must have test ether. can export from metamask or myetherwallet. rinkeby faucet at https://www.rinkeby.io/#faucet)
+const privateKeyString = "aa4b1ff1a70c4c55b9c5bd7bacb5fdd24dcc3e659f877faef7df3a34b0b5af98";//add ethereum private key(must have test ether. can export from metamask or myetherwallet. for public testnet, rinkeby faucet at https://www.rinkeby.io/#faucet)
 const account = privateToAccount(privateKeyString);//create account object from private key string
 
 //contract
