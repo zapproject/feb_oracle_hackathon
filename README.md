@@ -1,3 +1,16 @@
+**UPDATE**
+There were several problems in the way ethjs library was presented. We are working out solutions currently.
+Let us shift focus of challenge to the data curation itself, ie the problem of creating a worker script that the oracle_daemon.js can call to retrieve data in a trusted manner.
+
+This may encompass SSL verification, integration of data from several sources( ala finance oracle worker retrieves data from 3 different exchanges to satisfy example query 'BINANCE_BTC_ETH'), or data signed by separate workers with separate wallets( could leverage ethereumjs-tx for instance to accomplish signing https://github.com/ethereumjs/ethereumjs-tx)
+
+Once we have the contract interface working again, we can integrate the worker scripts for you. 
+Thank you for your patience
+
+
+
+
+**See Update Above**
 Object: Build a Smart Contract Data-Oracle
 
 Using provided smart contract, deploy contract using truffle and trigger query events. 
