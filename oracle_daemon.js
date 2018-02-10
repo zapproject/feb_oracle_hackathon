@@ -9,6 +9,7 @@ const eth = new Eth(new Eth.HttpProvider(provider));
 /*
 provider account
 */
+
 //add ethereum private key(must have test ether. can export from metamask or myetherwallet. for public testnet, rinkeby faucet at https://www.rinkeby.io/#faucet)
 const privateKeyString = "aa4b1ff1a70c4c55b9c5bd7bacb5fdd24dcc3e659f877faef7df3a34b0b5af98";
 
