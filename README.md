@@ -63,8 +63,13 @@ https://medium.com/@gus_tavo_guim/using-truffle-to-create-and-deploy-smart-contr
 
 
 Criteria:
-Submissions will be presented at close of hackathon.
-Functionality
+Submissions will each be presented briefly at close of hackathon.
+    
+    Functionality
+    Mechanisms for data integrity(SSL,multiple sources, multiple signatures)
+    Concept presentation
+    Security
+    Ingenuity
 
 Stage 2:
 Deploy contract to rinkeby testnet and attempt to improve the integrity of your team’s oracle, for example, gathering data from multiple sources, providing SSL functionality, etc.
