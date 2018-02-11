@@ -1,20 +1,17 @@
 // Load Ethereum
-const Eth = require('ethjs');
+const Web3 = require('web3');
 const fs = require('fs');
-const privateToAccount = require('ethjs-account').privateToAccount;//ethjs module for handling ethereum accounts
-const provider = 'http://127.0.0.1:8545';//address of node
+const provider = 'ws://localhost:8545';
 
-const eth = new Eth(new Eth.HttpProvider(provider));
+const web3 = new Web3(new Web3.providers.WebsocketProvider(provider));
+const eth = web3.eth;
 
 /*
 provider account
 */
 
-//add ethereum private key(must have test ether. can export from metamask or myetherwallet. for public testnet, rinkeby faucet at https://www.rinkeby.io/#faucet)
-const privateKeyString = "aa4b1ff1a70c4c55b9c5bd7bacb5fdd24dcc3e659f877faef7df3a34b0b5af98";
-
 //create account object from private key string
-const account = privateToAccount(privateKeyString);
+const account_number = "0x2592a882499edf8897256f95c2c50d689ce2657b";
 
 /*
 contract
@@ -27,35 +24,25 @@ const eventEmitterFile = fs.readFileSync("event_emitter_abi.json");
 const emitterAbi = JSON.parse(eventEmitterFile);
 
 //contract address(deployed to rinkeby testnet)
-const emitterAddress = "0x856171b4c83ac0a9dd78b8a1062f3ca878db6928";
+const emitterAddress = "0x43fb05b642a784c882a59914cdab572aeb04a953";
 
 //instantiate contract object
-const eventEmitterContract = eth.contract(emitterAbi).at(emitterAddress);
+const eventEmitterContract = new eth.Contract(emitterAbi, emitterAddress);
 
 //make contract fire desired query with oracleAddress
 function triggerContractQuery(queryString, oracleAddress){
 
     //call contract fireEvent method
-    eventEmitterContract.fireEvent(queryString, oracleAddress).then((success) =>{
-        console.log(null, success);
-
-    }).catch((err) => {
-        console.log(err);
-    });
-
+    eventEmitterContract.methods.fireEvent(queryString, oracleAddress)
+        .send({from: account_number})
 }
 
 //respond to contract query
 function respondContractQuery(responseString){
 
     //call contract callback method
-    eventEmitterContract.callback(responseString).then((success) =>{
-        console.log(null, success);
-
-    }).catch((err) => {
-        console.log(err);
-    });
-
+    eventEmitterContract.methods.callBack(responseString)
+        .send({from: account_number})
 }
 
 /*
@@ -63,10 +50,12 @@ Handle Query events from EventEmitter contract
 event Query(string queryString, address queryAddress);
 */
 
-let queryEvent = eventEmitterContract.Query();
+const queryEvent = eventEmitterContract.events.Query();
+queryEvent.on("data", callback);
 
-queryEvent.watch((err, res) => {
-        console.log(err, res)
+function callback(q) {
+    console.log(q);
+    // do something
+}
 
-    //handle query parameters passed in res
-})
+triggerContractQuery("1234", "0x8cc628f5492ca0cef7918e5bf9554800c4d01760");
